@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  @keyframes oras-curtain-up { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+  @keyframes oras-curtain-down { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FAF8F5; -webkit-font-smoothing: antialiased; }
+  a { color: #8C6A2F; text-decoration: none; }
+  a:hover { color: #6E5124; }
+  @media (max-width: 768px) {
+    .oras-nav { display: none !important; }
+    .oras-head { padding: 16px 24px !important; }
+    .oras-plate { width: 76px !important; height: 76px !important; }
+    .oras-menu { min-height: 44px !important; }
+    .oras-tel { display: none !important; }
+    .oras-cats { position: static !important; }
+  }
+</style>
+<div style="font-family: 'Jost', sans-serif; color: #1C1A17; background: #FAF8F5; min-height: 100vh">
+<div data-curtain="" style="position: fixed; top: 0; left: 0; width: 100%; height: 130vh; z-index: 90; background: #14110D; border-bottom-left-radius: 50% 30vh; border-bottom-right-radius: 50% 30vh; transform: translateY(-100%); animation: oras-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both; will-change: transform; backface-visibility: hidden; pointer-events: none"></div>
+
+  <header class="oras-head" style="padding: 22px 40px; border-bottom: 1px solid #E2DCD3; background: #FAF8F5">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <button data-menu-open aria-label="Otvori meni" class="oras-menu" style="display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 8px 0; cursor: pointer; color: #1C1A17; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase" style-hover="color: #8C6A2F">
+        <span style="display: grid; gap: 5px; width: 26px">
+          <span style="display: block; height: 1px; background: currentColor"></span>
+          <span style="display: block; height: 1px; background: currentColor"></span>
+          <span style="display: block; height: 1px; background: currentColor; width: 16px"></span>
+        </span>
+        Meni
+      </button>
+      <a href="index.html" class="oras-plate" style="display: block; width: 92px; height: 92px; flex: 0 0 auto">
+        <img src="images/logo-oras.png" alt="Restoran Oras" style="width: 100%; height: 100%; object-fit: contain; display: block; mix-blend-mode: multiply" />
+      </a>
+      <a href="tel:066333508" class="oras-tel" style="border: 1px solid #C9C0B0; color: #1C1A17; padding: 12px 20px; border-radius: 4px; font-size: 13px; letter-spacing: 0.12em; white-space: nowrap" style-hover="border-color: #8C6A2F; color: #8C6A2F">066 333 508</a>
+    </div>
+    <nav class="oras-nav" style="display: flex; justify-content: center; gap: 42px; margin-top: 20px; flex-wrap: wrap">
+      <a href="index.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Početna</a>
+      <a href="jelovnik.html" style="color: #1C1A17; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #8C6A2F">Jelovnik</a>
+      <a href="kartapica.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Karta pića</a>
+      <a href="galerija.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Galerija</a>
+      <a href="kontakt.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Kontakt</a>
+    </nav>
+  </header>
+
+  <section style="padding: 88px 24px 56px; text-align: center">
+    <p style="margin: 0 0 18px; color: #8C6A2F; font-size: 12px; letter-spacing: 0.4em; text-transform: uppercase">Restoran Oras</p>
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 6vw, 76px); line-height: 1.05; letter-spacing: 0.05em; text-transform: uppercase">Jelovnik</h1>
+    <p style="margin: 24px auto 0; max-width: 44ch; font-size: 16px; line-height: 1.7; color: #6B645B">Kuhinja radi svaki dan od 08:00 do 23:00. Cene su u dinarima.</p>
+  </section>
+
+  <nav class="oras-cats" style="position: sticky; top: 0; z-index: 15; background: rgba(250,248,245,0.97); border-top: 1px solid #E2DCD3; border-bottom: 1px solid #E2DCD3; padding: 14px 24px">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap">
+      <a href="#dorucak" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Doručak</a>
+      <a href="#hladna-predjela" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Hladna predjela</a>
+      <a href="#topla-predjela" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Topla predjela</a>
+      <a href="#supe" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Supe i čorbe</a>
+      <a href="#rostilj" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Jela sa roštilja</a>
+      <a href="#po-porudzbini" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Jela po porudžbini</a>
+      <a href="#dezerti" style="color: #55504A; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="color: #8C6A2F">Dezerti</a>
+    </div>
+  </nav>
+
+  <main style="padding: 0 24px 40px">
+
+    <section id="dorucak" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 96px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 44px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Doručak</h2>
+      <div style="display: grid; gap: 22px">
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Jaja na oko</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">400</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">3 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Jaja na oko sa viršlom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">500</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">3 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Jaja na oko sa slaninom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">700</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">3 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Jaja na oko sa kobasicom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">700</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">3 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Omlet ili kajgana</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">500</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">3 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Omlet sa dodatkom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">500</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">3 kom, sa šunkom, slaninom, kačkavaljem ili povrćem</p>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Kačamak</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">500</span>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Prženice</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">500</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">4 kom</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hladna-predjela" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 104px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 44px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Hladna predjela</h2>
+      <div style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Oras daska za dve osobe</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1200</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Oras daska za četiri osobe</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">2400</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Mladi sir</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">200</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Kajmak</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">350</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Feta</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">200</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Kačkavalj</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">250</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Ajvar</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">200</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="topla-predjela" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 104px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 44px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Topla predjela</h2>
+      <div style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pečurke na žaru</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">500</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pečurke punjene kajmakom</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">600</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pohovani kačkavalj</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">600</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pohovane paprike</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">500</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="supe" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 104px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 44px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Supe i čorbe</h2>
+      <div style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Domaća supa</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">300</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Teleća čorba</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">400</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Riblja čorba</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">300</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Potaž od povrća</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">350</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="rostilj" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 104px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 44px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Jela sa roštilja</h2>
+      <div style="display: grid; gap: 22px">
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Oras dimljena vešalica</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">3000</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">1 kg</p>
+        </div>
+        <div>
+          <p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 21px">Domaća Oras kobasica</p>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">mala porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">700</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 8px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">velika porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">900</span>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 21px">Banjalučki ćevapi</p>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">mala porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">700</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 8px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">velika porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">900</span>
+          </div>
+        </div>
+        <div>
+          <p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 21px">Banjalučki ćevapi na kajmaku</p>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">mala porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">800</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 8px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">velika porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">1100</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pljeskavica</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">800</span>
+        </div>
+        <div>
+          <p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 21px">Pljeskavica na kajmaku</p>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">mala porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">700</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 8px">
+            <span style="font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">velika porcija</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">950</span>
+          </div>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Mešani roštilj</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">3000</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">1 kg</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="po-porudzbini" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 104px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 14px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Jela po porudžbini</h2>
+      <p style="margin: 0 0 44px; text-align: center; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8C6A2F">Spremljeno sous vide</p>
+      <div style="display: grid; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pileći file</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">840</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Punjeni pileći batak</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">750</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Pileća krilca</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">486</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Svinjski vrat</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1200</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Svinjska kolenica</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">810</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Svinjska rebra u BBQ sosu</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1260</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Svinjski potrbušak</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1050</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Rolovana teletina</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1950</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Juneći obrazi</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1350</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Juneći rebić</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">1590</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="dezerti" data-reveal="" style="max-width: 760px; margin: 0 auto; padding: 104px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <h2 style="margin: 0 0 44px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: 0.14em; text-transform: uppercase; text-align: center">Dezerti</h2>
+      <div style="display: grid; gap: 22px">
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Palačinke sa eurokremom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">250</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">2 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Palačinke sa eurokremom i plazmom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">300</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">2 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Palačinke sa nutelom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">300</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">2 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Palačinke sa nutelom i plazmom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">350</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">2 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Palačinke sa džemom</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">250</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">2 kom</p>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Palačinke sa džemom i orasima</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">300</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">2 kom</p>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Kolač po izboru kuhinje</span>
+          <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+          <span style="color: #8C6A2F; font-size: 17px">350</span>
+        </div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px">Sladoled</span>
+            <span style="flex: 1; border-bottom: 1px dotted #CFC6B6"></span>
+            <span style="color: #8C6A2F; font-size: 17px">100</span>
+          </div>
+          <p style="margin: 6px 0 0; font-family: 'Jost', sans-serif; font-size: 15px; color: #8B8377">kugla</p>
+        </div>
+      </div>
+    </section>
+
+    <div data-reveal="" style="max-width: 760px; margin: 104px auto 0; padding-top: 34px; border-top: 1px solid #E2DCD3; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(21px, 2.4vw, 28px); line-height: 1.35; max-width: 32ch">Za veće društvo meni dogovaramo unapred.</p>
+      <a href="tel:066333508" style="border: 1px solid #1C1A17; color: #1C1A17; padding: 15px 32px; border-radius: 4px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="background: #1C1A17; color: #FAF8F5">066 333 508</a>
+    </div>
+  </main>
+
+  <section style="background: #14110D; color: #F3EEE6; padding: 104px 24px 72px; margin-top: 112px">
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 48px">
+      <div>
+        <p style="margin: 0 0 14px; color: #C9A44C; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Adresa</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.4">Put za Ovču 158<br />Beograd</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 14px; color: #C9A44C; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Radno vreme</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.4">Svaki dan<br />08:00 - 23:00</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 14px; color: #C9A44C; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Informacije i rezervacije</p>
+        <p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 26px"><a href="tel:066333508" style="color: #F3EEE6" style-hover="color: #C9A44C">066 333 508</a></p>
+        <p style="margin: 0; font-size: 15px"><a href="https://instagram.com/restoran_oras" style="color: #C9A44C" style-hover="color: #F3EEE6">@restoran_oras</a></p>
+      </div>
+    </div>
+    <div style="max-width: 1100px; margin: 80px auto 0; padding-top: 30px; border-top: 1px solid rgba(243,238,230,0.16)">
+      <span style="font-size: 13px; color: rgba(243,238,230,0.55)">Restoran Oras, jezgro tradicije</span>
+    </div>
+  </section>
+
+
+  <div data-menu-close data-menu-backdrop style="position: fixed; inset: 0; background: rgba(20,17,13,0.62); z-index: 40; opacity: 0; pointer-events: none; transition: opacity 0.3s ease"></div>
+  <aside data-menu style="position: fixed; top: 0; left: 0; bottom: 0; width: min(360px, 86vw); background: #14110D; color: #F3EEE6; z-index: 50; padding: 32px 34px; transform: translateX(-102%); transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <span style="width: 62px; height: 62px; background: #FDFCF9; border-radius: 3px; padding: 6px; flex: 0 0 auto">
+        <img src="images/logo-oras.png" alt="Restoran Oras" style="width: 100%; height: 100%; object-fit: contain; display: block" />
+      </span>
+      <button data-menu-close style="background: none; border: 0; color: #F3EEE6; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer; padding: 4px 0" style-hover="color: #C9A44C">Zatvori</button>
+    </div>
+    <nav style="display: grid; gap: 2px; margin-top: 44px">
+      <a href="index.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Početna</a>
+      <a href="jelovnik.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Jelovnik</a>
+      <a href="kartapica.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Karta pića</a>
+      <a href="galerija.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Galerija</a>
+      <a href="kontakt.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Kontakt</a>
+    </nav>
+    <div style="margin-top: auto; display: grid; gap: 8px">
+      <a href="tel:066333508" style="color: #C9A44C; font-size: 15px; letter-spacing: 0.1em" style-hover="color: #F3EEE6">066 333 508</a>
+      <a href="https://instagram.com/restoran_oras" style="color: rgba(243,238,230,0.7); font-size: 14px" style-hover="color: #C9A44C">@restoran_oras</a>
+      <span style="color: rgba(243,238,230,0.5); font-size: 14px">Put za Ovču 158, svaki dan 08:00 - 23:00</span>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- Mobile nav menu ----------
+  var menuBackdrop = document.querySelector("[data-menu-backdrop]");
+  var menuAside = document.querySelector("[data-menu]");
+
+  function setMenu(open) {
+    if (menuBackdrop) {
+      menuBackdrop.style.opacity = open ? "1" : "0";
+      menuBackdrop.style.pointerEvents = open ? "auto" : "none";
+    }
+    if (menuAside) {
+      menuAside.style.transform = "translateX(" + (open ? "0%" : "-102%") + ")";
+    }
+  }
+
+  document.querySelectorAll("[data-menu-open]").forEach(function (el) {
+    el.addEventListener("click", function () { setMenu(true); });
+  });
+  document.querySelectorAll("[data-menu-close]").forEach(function (el) {
+    el.addEventListener("click", function () { setMenu(false); });
+  });
+
+  // ---------- Generic style-hover engine ----------
+  // Mirrors the Claude Design preview's `style-hover` attribute: on hover,
+  // layer the extra declarations on top of the element's base inline style;
+  // on mouse-out, restore the exact base style.
+  document.querySelectorAll("[style-hover]").forEach(function (el) {
+    var base = el.getAttribute("style") || "";
+    var hover = el.getAttribute("style-hover");
+    el.addEventListener("mouseenter", function () {
+      el.setAttribute("style", base + ";" + hover);
+    });
+    el.addEventListener("mouseleave", function () {
+      el.setAttribute("style", base);
+    });
+  });
+
+  // ---------- Scroll reveal ----------
+  var revealNodes = document.querySelectorAll("[data-reveal]");
+  if (revealNodes.length) {
+    var obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    revealNodes.forEach(function (node) { obs.observe(node); });
+  }
+
+  // ---------- Curtain page transition ----------
+  var curtain = document.querySelector("[data-curtain]");
+  var navigating = false;
+
+  function resetCurtain() {
+    if (!curtain) return;
+    curtain.style.animation = "none";
+    curtain.style.transform = "translateY(0)";
+    // force reflow so the browser registers the reset before re-applying the animation
+    void curtain.offsetWidth;
+    curtain.style.animation = "oras-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both";
+    navigating = false;
+  }
+
+  // Fix: if a click had already played the "curtain down" (fully covering,
+  // dark) animation right before the browser cached this page for
+  // back/forward navigation, restoring it from that cache would otherwise
+  // leave the page stuck under a solid dark overlay with no script re-run
+  // to lift it.
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) resetCurtain();
+  });
+
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (!href || href.indexOf(".html") === -1) return;
+    var current = location.pathname.split("/").pop() || "index.html";
+    if (href.split("#")[0] === current) return;
+    if (navigating) { e.preventDefault(); return; }
+
+    e.preventDefault();
+    navigating = true;
+    var done = false;
+    var go = function () {
+      if (done) return;
+      done = true;
+      location.href = href;
+    };
+
+    if (curtain) {
+      curtain.style.animation = "oras-curtain-down 0.7s cubic-bezier(0.65, 0, 0.35, 1) both";
+      curtain.addEventListener("animationend", go, { once: true });
+      setTimeout(go, 1000);
+    } else {
+      go();
+    }
+  });
+
+  // ---------- Kontakt: reservation form ----------
+  var form = document.querySelector("[data-reservation-form]");
+  if (form) {
+    var errorBox = form.querySelector("[data-form-error]");
+    var successBox = form.querySelector("[data-form-success]");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = form.elements.name.value.trim();
+      var phone = form.elements.phone.value.trim();
+      var email = form.elements.email.value.trim();
+
+      var error = "";
+      if (!name) {
+        error = "Upišite ime i prezime.";
+      } else if (!phone && !email) {
+        error = "Upišite telefon ili mejl da možemo da vas pozovemo.";
+      } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        error = "Proverite mejl adresu.";
+      } else if (phone && phone.replace(/[^0-9]/g, "").length < 8) {
+        error = "Proverite broj telefona.";
+      }
+
+      if (error) {
+        if (errorBox) { errorBox.textContent = error; errorBox.hidden = false; }
+        if (successBox) successBox.hidden = true;
+        return;
+      }
+
+      if (errorBox) errorBox.hidden = true;
+      if (successBox) successBox.hidden = false;
+      form.reset();
+      form.elements.people.value = "2";
+    });
+  }
+
+  // ---------- Galerija: lightbox ----------
+  var lightbox = document.querySelector("[data-lightbox]");
+  if (lightbox) {
+    var shots = [
+      { t: "Velika sala", n: "pun sto, veče" },
+      { t: "Bašta", n: "leti, pod orahom" },
+      { t: "Roštilj", n: "vešalica na žaru" },
+      { t: "Rolovana teletina", n: "tanjir izbliza" },
+      { t: "Kuhinja", n: "ekipa u poslu" },
+      { t: "Riba", n: "post, petak" },
+      { t: "Mala sala", n: "proslava" },
+      { t: "Rakija", n: "čokanjčići na stolu" },
+      { t: "Doručak", n: "kačamak i kajmak" },
+      { t: "Ulaz", n: "tabla sa imenom" },
+      { t: "Vino", n: "flaše na polici" },
+      { t: "Dezert", n: "palačinke" }
+    ];
+    var current = null;
+    var numberEl = lightbox.querySelector("[data-lightbox-number]");
+    var titleEl = lightbox.querySelector("[data-lightbox-title]");
+    var noteEl = lightbox.querySelector("[data-lightbox-note]");
+    var counterEl = lightbox.querySelector("[data-lightbox-counter]");
+    var panel = lightbox.querySelector("[data-lightbox-panel]");
+
+    function render() {
+      var open = current !== null;
+      lightbox.style.opacity = open ? "1" : "0";
+      lightbox.style.pointerEvents = open ? "auto" : "none";
+      if (!open) return;
+      var shot = shots[current];
+      if (numberEl) numberEl.textContent = "Fotografija " + String(current + 1).padStart(2, "0");
+      if (titleEl) titleEl.textContent = shot.t;
+      if (noteEl) noteEl.textContent = shot.n;
+      if (counterEl) counterEl.textContent = (current + 1) + " / " + shots.length;
+    }
+
+    function step(d) {
+      if (current === null) return;
+      current = (current + d + shots.length) % shots.length;
+      render();
+    }
+
+    document.querySelectorAll("[data-open]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        current = parseInt(el.getAttribute("data-open"), 10);
+        render();
+      });
+    });
+    lightbox.querySelectorAll("[data-lightbox-close]").forEach(function (el) {
+      el.addEventListener("click", function () { current = null; render(); });
+    });
+    lightbox.querySelectorAll("[data-lightbox-prev]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
+    });
+    lightbox.querySelectorAll("[data-lightbox-next]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.stopPropagation(); step(1); });
+    });
+    if (panel) panel.addEventListener("click", function (e) { e.stopPropagation(); });
+
+    document.addEventListener("keydown", function (e) {
+      if (current === null) return;
+      if (e.key === "Escape") { current = null; render(); }
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    });
+  }
+})();
+</script>
+</body>
+</html>

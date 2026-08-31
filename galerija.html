@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  @keyframes oras-curtain-up { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+  @keyframes oras-curtain-down { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FAF8F5; -webkit-font-smoothing: antialiased; }
+  a { color: #8C6A2F; text-decoration: none; }
+  a:hover { color: #6E5124; }
+  @media (max-width: 768px) {
+    .oras-nav { display: none !important; }
+    .oras-head { padding: 16px 24px !important; }
+    .oras-plate { width: 76px !important; height: 76px !important; }
+    .oras-menu { min-height: 44px !important; }
+    .oras-tel { display: none !important; }
+  }
+</style>
+<div style="font-family: 'Jost', sans-serif; color: #1C1A17; background: #FAF8F5; min-height: 100vh">
+<div data-curtain="" style="position: fixed; top: 0; left: 0; width: 100%; height: 130vh; z-index: 90; background: #14110D; border-bottom-left-radius: 50% 30vh; border-bottom-right-radius: 50% 30vh; transform: translateY(-100%); animation: oras-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both; will-change: transform; backface-visibility: hidden; pointer-events: none"></div>
+
+  <header class="oras-head" style="padding: 22px 40px; border-bottom: 1px solid #E2DCD3; background: #FAF8F5">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <button data-menu-open aria-label="Otvori meni" class="oras-menu" style="display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 8px 0; cursor: pointer; color: #1C1A17; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase" style-hover="color: #8C6A2F">
+        <span style="display: grid; gap: 5px; width: 26px">
+          <span style="display: block; height: 1px; background: currentColor"></span>
+          <span style="display: block; height: 1px; background: currentColor"></span>
+          <span style="display: block; height: 1px; background: currentColor; width: 16px"></span>
+        </span>
+        Meni
+      </button>
+      <a href="index.html" class="oras-plate" style="display: block; width: 92px; height: 92px; flex: 0 0 auto">
+        <img src="images/logo-oras.png" alt="Restoran Oras" style="width: 100%; height: 100%; object-fit: contain; display: block; mix-blend-mode: multiply" />
+      </a>
+      <a href="tel:066333508" class="oras-tel" style="border: 1px solid #C9C0B0; color: #1C1A17; padding: 12px 20px; border-radius: 4px; font-size: 13px; letter-spacing: 0.12em; white-space: nowrap" style-hover="border-color: #8C6A2F; color: #8C6A2F">066 333 508</a>
+    </div>
+    <nav class="oras-nav" style="display: flex; justify-content: center; gap: 42px; margin-top: 20px; flex-wrap: wrap">
+      <a href="index.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Početna</a>
+      <a href="jelovnik.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Jelovnik</a>
+      <a href="kartapica.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Karta pića</a>
+      <a href="galerija.html" style="color: #1C1A17; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #8C6A2F">Galerija</a>
+      <a href="kontakt.html" style="color: #55504A; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid transparent" style-hover="color: #1C1A17; border-bottom-color: #C9C0B0">Kontakt</a>
+    </nav>
+  </header>
+
+  <section style="position: relative; padding: 150px 24px 130px; text-align: center; overflow: hidden">
+    <img src="images/hero-sala.png" alt="Sala restorana Oras" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" />
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,17,13,0.72) 0%, rgba(20,17,13,0.55) 50%, rgba(20,17,13,0.82) 100%)"></div>
+    <div style="position: relative; max-width: 760px; margin: 0 auto">
+      <p style="margin: 0 0 18px; color: #C9A44C; font-size: 12px; letter-spacing: 0.4em; text-transform: uppercase">Restoran Oras</p>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 6vw, 76px); line-height: 1.05; letter-spacing: 0.05em; text-transform: uppercase; color: #FDFCF9">Galerija</h1>
+      <p style="margin: 26px auto 0; max-width: 30ch; font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.45; color: rgba(253,252,249,0.86)">Sto, žar i neko ko kasni. Ovako to izgleda kod nas.</p>
+    </div>
+  </section>
+
+  <main style="padding: 0 24px 40px">
+    <section data-reveal="" style="max-width: 1100px; margin: 0 auto; padding: 96px 0 0; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px">
+        <button data-open="0" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 01</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Velika sala</span>
+            <span style="font-size: 13px; color: #8B8377">pun sto, veče</span>
+          </span>
+        </button>
+        <button data-open="1" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 02</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Bašta</span>
+            <span style="font-size: 13px; color: #8B8377">leti, pod orahom</span>
+          </span>
+        </button>
+        <button data-open="2" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 03</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Roštilj</span>
+            <span style="font-size: 13px; color: #8B8377">vešalica na žaru</span>
+          </span>
+        </button>
+        <button data-open="3" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 04</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Rolovana teletina</span>
+            <span style="font-size: 13px; color: #8B8377">tanjir izbliza</span>
+          </span>
+        </button>
+        <button data-open="4" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 05</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Kuhinja</span>
+            <span style="font-size: 13px; color: #8B8377">ekipa u poslu</span>
+          </span>
+        </button>
+        <button data-open="5" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 06</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Riba</span>
+            <span style="font-size: 13px; color: #8B8377">post, petak</span>
+          </span>
+        </button>
+        <button data-open="6" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 07</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Mala sala</span>
+            <span style="font-size: 13px; color: #8B8377">proslava</span>
+          </span>
+        </button>
+        <button data-open="7" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 08</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Rakija</span>
+            <span style="font-size: 13px; color: #8B8377">čokanjčići na stolu</span>
+          </span>
+        </button>
+        <button data-open="8" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 09</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Doručak</span>
+            <span style="font-size: 13px; color: #8B8377">kačamak i kajmak</span>
+          </span>
+        </button>
+        <button data-open="9" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 10</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Ulaz</span>
+            <span style="font-size: 13px; color: #8B8377">tabla sa imenom</span>
+          </span>
+        </button>
+        <button data-open="10" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 11</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Vino</span>
+            <span style="font-size: 13px; color: #8B8377">flaše na polici</span>
+          </span>
+        </button>
+        <button data-open="11" style="position: relative; display: block; padding: 0; border: 2px dashed #C9BBA0; background: #EFEAE2; border-radius: 4px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; width: 100%; text-align: left" style-hover="border-color: #8C6A2F">
+          <span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; text-align: center">
+            <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8C6A2F">📷 Fotografija 12</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #55504A">Dezert</span>
+            <span style="font-size: 13px; color: #8B8377">palačinke</span>
+          </span>
+        </button>
+      </div>
+      <p style="margin: 28px 0 0; font-size: 14px; color: #8B8377; text-align: center">Klikni na fotografiju za veći prikaz.</p>
+    </section>
+
+    <div data-reveal="" style="max-width: 760px; margin: 104px auto 0; padding-top: 34px; border-top: 1px solid #E2DCD3; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
+      <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(21px, 2.4vw, 28px); line-height: 1.35; max-width: 32ch">Slikaj kod nas i označi nas.</p>
+      <a href="https://instagram.com/restoran_oras" style="border: 1px solid #1C1A17; color: #1C1A17; padding: 15px 32px; border-radius: 4px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap" style-hover="background: #1C1A17; color: #FAF8F5">@restoran_oras</a>
+    </div>
+  </main>
+
+  <section style="background: #14110D; color: #F3EEE6; padding: 104px 24px 72px; margin-top: 112px">
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 48px">
+      <div>
+        <p style="margin: 0 0 14px; color: #C9A44C; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Adresa</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.4">Put za Ovču 158<br />Beograd</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 14px; color: #C9A44C; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Radno vreme</p>
+        <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.4">Svaki dan<br />08:00 - 23:00</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 14px; color: #C9A44C; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Informacije i rezervacije</p>
+        <p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 26px"><a href="tel:066333508" style="color: #F3EEE6" style-hover="color: #C9A44C">066 333 508</a></p>
+        <p style="margin: 0; font-size: 15px"><a href="https://instagram.com/restoran_oras" style="color: #C9A44C" style-hover="color: #F3EEE6">@restoran_oras</a></p>
+      </div>
+    </div>
+    <div style="max-width: 1100px; margin: 80px auto 0; padding-top: 30px; border-top: 1px solid rgba(243,238,230,0.16)">
+      <span style="font-size: 13px; color: rgba(243,238,230,0.55)">Restoran Oras, jezgro tradicije</span>
+    </div>
+  </section>
+
+  <div data-lightbox-close data-lightbox style="position: fixed; inset: 0; z-index: 70; background: rgba(20,17,13,0.94); opacity: 0; pointer-events: none; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; padding: 72px 24px">
+    <button data-lightbox-close aria-label="Zatvori" style="position: absolute; top: 22px; right: 26px; background: none; border: 0; color: #F3EEE6; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer" style-hover="color: #C9A44C">Zatvori</button>
+    <button data-lightbox-prev aria-label="Prethodna" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border: 1px solid rgba(243,238,230,0.4); border-radius: 4px; background: none; color: #F3EEE6; font-size: 22px; line-height: 1; cursor: pointer" style-hover="border-color: #C9A44C; color: #C9A44C">‹</button>
+    <button data-lightbox-next aria-label="Sledeća" style="position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border: 1px solid rgba(243,238,230,0.4); border-radius: 4px; background: none; color: #F3EEE6; font-size: 22px; line-height: 1; cursor: pointer" style-hover="border-color: #C9A44C; color: #C9A44C">›</button>
+    <div data-lightbox-panel style="width: min(1000px, 100%); text-align: center">
+      <div style="border: 1px solid rgba(243,238,230,0.22); border-radius: 4px; aspect-ratio: 3 / 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px">
+        <span data-lightbox-number style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #C9A44C"></span>
+        <span data-lightbox-title style="font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 44px); color: #F3EEE6"></span>
+        <span data-lightbox-note style="font-size: 14px; color: rgba(243,238,230,0.6)"></span>
+      </div>
+      <p data-lightbox-counter style="margin: 18px 0 0; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(243,238,230,0.55)"></p>
+    </div>
+  </div>
+
+
+  <div data-menu-close data-menu-backdrop style="position: fixed; inset: 0; background: rgba(20,17,13,0.62); z-index: 40; opacity: 0; pointer-events: none; transition: opacity 0.3s ease"></div>
+  <aside data-menu style="position: fixed; top: 0; left: 0; bottom: 0; width: min(360px, 86vw); background: #14110D; color: #F3EEE6; z-index: 50; padding: 32px 34px; transform: translateX(-102%); transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <span style="width: 62px; height: 62px; background: #FDFCF9; border-radius: 3px; padding: 6px; flex: 0 0 auto">
+        <img src="images/logo-oras.png" alt="Restoran Oras" style="width: 100%; height: 100%; object-fit: contain; display: block" />
+      </span>
+      <button data-menu-close style="background: none; border: 0; color: #F3EEE6; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer; padding: 4px 0" style-hover="color: #C9A44C">Zatvori</button>
+    </div>
+    <nav style="display: grid; gap: 2px; margin-top: 44px">
+      <a href="index.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Početna</a>
+      <a href="jelovnik.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Jelovnik</a>
+      <a href="kartapica.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Karta pića</a>
+      <a href="galerija.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Galerija</a>
+      <a href="kontakt.html" style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #F3EEE6; padding: 12px 0; border-bottom: 1px solid rgba(243,238,230,0.14)" style-hover="color: #C9A44C">Kontakt</a>
+    </nav>
+    <div style="margin-top: auto; display: grid; gap: 8px">
+      <a href="tel:066333508" style="color: #C9A44C; font-size: 15px; letter-spacing: 0.1em" style-hover="color: #F3EEE6">066 333 508</a>
+      <a href="https://instagram.com/restoran_oras" style="color: rgba(243,238,230,0.7); font-size: 14px" style-hover="color: #C9A44C">@restoran_oras</a>
+      <span style="color: rgba(243,238,230,0.5); font-size: 14px">Put za Ovču 158, svaki dan 08:00 - 23:00</span>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- Mobile nav menu ----------
+  var menuBackdrop = document.querySelector("[data-menu-backdrop]");
+  var menuAside = document.querySelector("[data-menu]");
+
+  function setMenu(open) {
+    if (menuBackdrop) {
+      menuBackdrop.style.opacity = open ? "1" : "0";
+      menuBackdrop.style.pointerEvents = open ? "auto" : "none";
+    }
+    if (menuAside) {
+      menuAside.style.transform = "translateX(" + (open ? "0%" : "-102%") + ")";
+    }
+  }
+
+  document.querySelectorAll("[data-menu-open]").forEach(function (el) {
+    el.addEventListener("click", function () { setMenu(true); });
+  });
+  document.querySelectorAll("[data-menu-close]").forEach(function (el) {
+    el.addEventListener("click", function () { setMenu(false); });
+  });
+
+  // ---------- Generic style-hover engine ----------
+  // Mirrors the Claude Design preview's `style-hover` attribute: on hover,
+  // layer the extra declarations on top of the element's base inline style;
+  // on mouse-out, restore the exact base style.
+  document.querySelectorAll("[style-hover]").forEach(function (el) {
+    var base = el.getAttribute("style") || "";
+    var hover = el.getAttribute("style-hover");
+    el.addEventListener("mouseenter", function () {
+      el.setAttribute("style", base + ";" + hover);
+    });
+    el.addEventListener("mouseleave", function () {
+      el.setAttribute("style", base);
+    });
+  });
+
+  // ---------- Scroll reveal ----------
+  var revealNodes = document.querySelectorAll("[data-reveal]");
+  if (revealNodes.length) {
+    var obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    revealNodes.forEach(function (node) { obs.observe(node); });
+  }
+
+  // ---------- Curtain page transition ----------
+  var curtain = document.querySelector("[data-curtain]");
+  var navigating = false;
+
+  function resetCurtain() {
+    if (!curtain) return;
+    curtain.style.animation = "none";
+    curtain.style.transform = "translateY(0)";
+    // force reflow so the browser registers the reset before re-applying the animation
+    void curtain.offsetWidth;
+    curtain.style.animation = "oras-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both";
+    navigating = false;
+  }
+
+  // Fix: if a click had already played the "curtain down" (fully covering,
+  // dark) animation right before the browser cached this page for
+  // back/forward navigation, restoring it from that cache would otherwise
+  // leave the page stuck under a solid dark overlay with no script re-run
+  // to lift it.
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) resetCurtain();
+  });
+
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (!href || href.indexOf(".html") === -1) return;
+    var current = location.pathname.split("/").pop() || "index.html";
+    if (href.split("#")[0] === current) return;
+    if (navigating) { e.preventDefault(); return; }
+
+    e.preventDefault();
+    navigating = true;
+    var done = false;
+    var go = function () {
+      if (done) return;
+      done = true;
+      location.href = href;
+    };
+
+    if (curtain) {
+      curtain.style.animation = "oras-curtain-down 0.7s cubic-bezier(0.65, 0, 0.35, 1) both";
+      curtain.addEventListener("animationend", go, { once: true });
+      setTimeout(go, 1000);
+    } else {
+      go();
+    }
+  });
+
+  // ---------- Kontakt: reservation form ----------
+  var form = document.querySelector("[data-reservation-form]");
+  if (form) {
+    var errorBox = form.querySelector("[data-form-error]");
+    var successBox = form.querySelector("[data-form-success]");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = form.elements.name.value.trim();
+      var phone = form.elements.phone.value.trim();
+      var email = form.elements.email.value.trim();
+
+      var error = "";
+      if (!name) {
+        error = "Upišite ime i prezime.";
+      } else if (!phone && !email) {
+        error = "Upišite telefon ili mejl da možemo da vas pozovemo.";
+      } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        error = "Proverite mejl adresu.";
+      } else if (phone && phone.replace(/[^0-9]/g, "").length < 8) {
+        error = "Proverite broj telefona.";
+      }
+
+      if (error) {
+        if (errorBox) { errorBox.textContent = error; errorBox.hidden = false; }
+        if (successBox) successBox.hidden = true;
+        return;
+      }
+
+      if (errorBox) errorBox.hidden = true;
+      if (successBox) successBox.hidden = false;
+      form.reset();
+      form.elements.people.value = "2";
+    });
+  }
+
+  // ---------- Galerija: lightbox ----------
+  var lightbox = document.querySelector("[data-lightbox]");
+  if (lightbox) {
+    var shots = [
+      { t: "Velika sala", n: "pun sto, veče" },
+      { t: "Bašta", n: "leti, pod orahom" },
+      { t: "Roštilj", n: "vešalica na žaru" },
+      { t: "Rolovana teletina", n: "tanjir izbliza" },
+      { t: "Kuhinja", n: "ekipa u poslu" },
+      { t: "Riba", n: "post, petak" },
+      { t: "Mala sala", n: "proslava" },
+      { t: "Rakija", n: "čokanjčići na stolu" },
+      { t: "Doručak", n: "kačamak i kajmak" },
+      { t: "Ulaz", n: "tabla sa imenom" },
+      { t: "Vino", n: "flaše na polici" },
+      { t: "Dezert", n: "palačinke" }
+    ];
+    var current = null;
+    var numberEl = lightbox.querySelector("[data-lightbox-number]");
+    var titleEl = lightbox.querySelector("[data-lightbox-title]");
+    var noteEl = lightbox.querySelector("[data-lightbox-note]");
+    var counterEl = lightbox.querySelector("[data-lightbox-counter]");
+    var panel = lightbox.querySelector("[data-lightbox-panel]");
+
+    function render() {
+      var open = current !== null;
+      lightbox.style.opacity = open ? "1" : "0";
+      lightbox.style.pointerEvents = open ? "auto" : "none";
+      if (!open) return;
+      var shot = shots[current];
+      if (numberEl) numberEl.textContent = "Fotografija " + String(current + 1).padStart(2, "0");
+      if (titleEl) titleEl.textContent = shot.t;
+      if (noteEl) noteEl.textContent = shot.n;
+      if (counterEl) counterEl.textContent = (current + 1) + " / " + shots.length;
+    }
+
+    function step(d) {
+      if (current === null) return;
+      current = (current + d + shots.length) % shots.length;
+      render();
+    }
+
+    document.querySelectorAll("[data-open]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        current = parseInt(el.getAttribute("data-open"), 10);
+        render();
+      });
+    });
+    lightbox.querySelectorAll("[data-lightbox-close]").forEach(function (el) {
+      el.addEventListener("click", function () { current = null; render(); });
+    });
+    lightbox.querySelectorAll("[data-lightbox-prev]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
+    });
+    lightbox.querySelectorAll("[data-lightbox-next]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.stopPropagation(); step(1); });
+    });
+    if (panel) panel.addEventListener("click", function (e) { e.stopPropagation(); });
+
+    document.addEventListener("keydown", function (e) {
+      if (current === null) return;
+      if (e.key === "Escape") { current = null; render(); }
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    });
+  }
+})();
+</script>
+</body>
+</html>
