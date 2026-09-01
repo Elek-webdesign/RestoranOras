@@ -19,6 +19,25 @@
   a:hover { color: #6E5124; }
   input, textarea, select { font-family: 'Jost', sans-serif; }
   input:focus, textarea:focus, select:focus { outline: none; border-color: #8C6A2F; }
+  .oras-info-grid { display: grid; grid-template-columns: repeat(3, minmax(200px, 260px)); justify-content: center; gap: 88px; align-items: start; }
+  .oras-pop { position: absolute; top: calc(100% + 10px); left: 0; z-index: 25; background: #FFFFFF; border: 1px solid #E5DFD3; border-radius: 12px; box-shadow: 0 20px 45px rgba(28,26,23,0.14), 0 4px 14px rgba(28,26,23,0.07); padding: 20px; opacity: 0; transform: translateY(-8px); transition: opacity 0.2s ease, transform 0.2s ease; }
+  .oras-pop--date { width: 300px; }
+  .oras-pop--time { width: 220px; max-height: 280px; overflow-y: auto; }
+  .oras-cal-nav { background: none; border: 1px solid #E5DFD3; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; color: #55504A; font-size: 16px; line-height: 1; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; }
+  .oras-cal-nav:hover { border-color: #8C6A2F; color: #8C6A2F; background: #FBF3E3; }
+  .oras-cal-month { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 0.03em; color: #1C1A17; }
+  .oras-cal-weekrow { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 8px; }
+  .oras-cal-weekrow span { display: block; text-align: center; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #ABA398; }
+  .oras-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+  .oras-day-btn { border: 0; background: transparent; color: #1C1A17; border-radius: 50%; width: 34px; height: 34px; font-size: 13.5px; font-family: 'Jost', sans-serif; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+  .oras-day-btn:hover:not(:disabled) { background: #F3EAD5; }
+  .oras-day-btn:disabled { color: #D8D2C5; cursor: default; }
+  .oras-day-btn--today { box-shadow: inset 0 0 0 1px #C9A44C; }
+  .oras-day-btn--selected, .oras-day-btn--selected:hover { background: #8C6A2F !important; color: #FDFCF9 !important; }
+  .oras-time-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .oras-time-btn { border: 1px solid #EDE7D9; background: #FCFAF4; color: #1C1A17; border-radius: 8px; padding: 9px 6px; font-size: 13.5px; font-family: 'Jost', sans-serif; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease; }
+  .oras-time-btn:hover { border-color: #8C6A2F; background: #FBF3E3; }
+  .oras-time-btn--selected, .oras-time-btn--selected:hover { background: #8C6A2F; border-color: #8C6A2F; color: #FDFCF9; }
   @media (max-width: 768px) {
     .oras-nav { display: none !important; }
     .oras-head { padding: 16px 24px !important; }
@@ -26,10 +45,15 @@
     .oras-menu { min-height: 44px !important; }
     .oras-tel { display: none !important; }
     .oras-info-val { min-height: 0 !important; }
+    .oras-info-grid { grid-template-columns: 1fr !important; justify-content: stretch !important; gap: 44px !important; text-align: center !important; justify-items: center !important; }
   }
 </style>
 <div style="font-family: 'Jost', sans-serif; color: #1C1A17; background: #FAF8F5; min-height: 100vh">
 <div data-curtain="" style="position: fixed; top: 0; left: 0; width: 100%; height: 130vh; z-index: 90; background: #14110D; border-bottom-left-radius: 50% 30vh; border-bottom-right-radius: 50% 30vh; transform: translateY(-100%); animation: oras-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both; will-change: transform; backface-visibility: hidden; pointer-events: none"></div>
+
+<button type="button" data-to-top aria-label="Nazad na vrh" style="position: fixed; left: 50%; bottom: 32px; transform: translate(-50%, 12px); width: 48px; height: 48px; border-radius: 50%; background: #14110D; border: 1px solid rgba(201,164,76,0.5); color: #F3EEE6; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 30; opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 24px rgba(0,0,0,0.28); padding: 0">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</button>
 
   <header class="oras-head" style="padding: 22px 40px; border-bottom: 1px solid #E2DCD3; background: #FAF8F5">
     <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px">
@@ -63,7 +87,7 @@
   <main style="padding: 0 24px">
 
     <section data-reveal="" style="max-width: 1100px; margin: 0 auto; opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 88px; align-items: start">
+      <div class="oras-info-grid">
         <div>
           <p style="margin: 0 0 14px; color: #8C6A2F; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Adresa</p>
           <p class="oras-info-val" style="margin: 0 0 30px; font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.4; min-height: 73px">Put za Ovču 158<br />11213 Beograd</p>
@@ -108,13 +132,35 @@
         <p style="margin: -12px 0 0; font-size: 14px; color: #8B8377">Dovoljan je telefon ili mejl, jedno od dva.</p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 26px">
-          <label style="display: grid; gap: 10px">
+          <label data-date-field style="display: grid; gap: 10px; position: relative">
             <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #55504A">Datum</span>
-            <input type="date" name="date" style="width: 100%; padding: 15px 16px; font-size: 16px; color: #1C1A17; background: #FDFCF9; border: 1px solid #C9C0B0; border-radius: 4px" />
+            <button type="button" data-date-trigger style="width: 100%; padding: 15px 16px; font-size: 16px; color: #1C1A17; background: #FDFCF9; border: 1px solid #C9C0B0; border-radius: 4px; font-family: 'Jost', sans-serif; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+              <span data-date-label style="color: #8B8377">DD.MM.GGGG</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8C6A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </button>
+            <input type="hidden" name="date" data-date-value />
+            <div data-date-panel hidden class="oras-pop oras-pop--date">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px">
+                <button type="button" data-date-prev aria-label="Prethodni mesec" class="oras-cal-nav">‹</button>
+                <span data-date-month class="oras-cal-month"></span>
+                <button type="button" data-date-next aria-label="Sledeći mesec" class="oras-cal-nav">›</button>
+              </div>
+              <div class="oras-cal-weekrow">
+                <span>Pon</span><span>Uto</span><span>Sre</span><span>Čet</span><span>Pet</span><span>Sub</span><span>Ned</span>
+              </div>
+              <div data-date-grid class="oras-cal-grid"></div>
+            </div>
           </label>
-          <label style="display: grid; gap: 10px">
+          <label data-time-field style="display: grid; gap: 10px; position: relative">
             <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #55504A">Vreme</span>
-            <input type="time" name="time" style="width: 100%; padding: 15px 16px; font-size: 16px; color: #1C1A17; background: #FDFCF9; border: 1px solid #C9C0B0; border-radius: 4px" />
+            <button type="button" data-time-trigger style="width: 100%; padding: 15px 16px; font-size: 16px; color: #1C1A17; background: #FDFCF9; border: 1px solid #C9C0B0; border-radius: 4px; font-family: 'Jost', sans-serif; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+              <span data-time-label style="color: #8B8377">--:--</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8C6A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 16 14"></polyline></svg>
+            </button>
+            <input type="hidden" name="time" data-time-value />
+            <div data-time-panel hidden class="oras-pop oras-pop--time">
+              <div data-time-grid class="oras-time-grid"></div>
+            </div>
           </label>
           <label style="display: grid; gap: 10px">
             <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #55504A">Broj osoba</span>
@@ -129,13 +175,19 @@
 
         <p data-form-error hidden style="margin: 0; padding: 14px 16px; border: 1px solid #A8452F; border-radius: 4px; color: #A8452F; font-size: 15px"></p>
 
-        <p data-form-success hidden style="margin: 0; padding: 14px 16px; border: 1px solid #8C6A2F; border-radius: 4px; color: #6E5124; font-size: 15px">Primili smo zahtev. Zovemo vas u toku dana da potvrdimo sto.</p>
-
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 6px">
           <button type="submit" style="background: #8C6A2F; color: #FDFCF9; border: 0; padding: 17px 40px; border-radius: 4px; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer" style-hover="background: #6E5124">Pošalji zahtev</button>
           <span style="font-size: 15px; color: #6B645B; white-space: nowrap">ili nas pozovite na <a href="tel:066333508" style="white-space: nowrap; border-bottom: 1px solid #C9C0B0; padding-bottom: 1px">066 333 508</a></span>
         </div>
       </form>
+
+      <div data-reservation-done hidden style="max-width: 560px; margin: 0 auto; text-align: center; padding: 0 24px 36px; opacity: 0; transform: translateY(8px); transition: opacity 0.75s ease-out, transform 0.75s ease-out">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: #8C6A2F; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FDFCF9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h3 style="margin: 0 0 14px; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: 0.02em">Hvala na rezervaciji!</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #55504A">Javićemo vam se u toku dana da potvrdimo sto.<br />Vidimo se!</p>
+      </div>
     </section>
   </main>
 
@@ -296,11 +348,157 @@
     }
   });
 
+  // ---------- Kontakt: date & time pickers ----------
+  (function () {
+    var dateField = document.querySelector("[data-date-field]");
+    var timeField = document.querySelector("[data-time-field]");
+    if (!dateField && !timeField) return;
+
+    var MONTHS = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
+
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+    function closeAllPops(except) {
+      document.querySelectorAll(".oras-pop").forEach(function (p) {
+        if (p === except) return;
+        p.style.opacity = "0";
+        p.style.transform = "translateY(-8px)";
+        setTimeout(function () { if (p.style.opacity === "0") p.hidden = true; }, 180);
+      });
+    }
+    document.addEventListener("click", function () { closeAllPops(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAllPops();
+    });
+
+    function openPop(panel) {
+      closeAllPops(panel);
+      panel.hidden = false;
+      void panel.offsetWidth;
+      panel.style.opacity = "1";
+      panel.style.transform = "translateY(0)";
+    }
+
+    // ----- Date picker -----
+    if (dateField) {
+      var trigger = dateField.querySelector("[data-date-trigger]");
+      var label = dateField.querySelector("[data-date-label]");
+      var valueInput = dateField.querySelector("[data-date-value]");
+      var panel = dateField.querySelector("[data-date-panel]");
+      var monthLabel = dateField.querySelector("[data-date-month]");
+      var grid = dateField.querySelector("[data-date-grid]");
+      var prevBtn = dateField.querySelector("[data-date-prev]");
+      var nextBtn = dateField.querySelector("[data-date-next]");
+
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var viewYear = today.getFullYear();
+      var viewMonth = today.getMonth();
+      var selected = null;
+
+      function renderCalendar() {
+        monthLabel.textContent = MONTHS[viewMonth] + " " + viewYear;
+        grid.innerHTML = "";
+        var firstOfMonth = new Date(viewYear, viewMonth, 1);
+        var startOffset = (firstOfMonth.getDay() + 6) % 7;
+        var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        for (var i = 0; i < startOffset; i++) {
+          grid.appendChild(document.createElement("span"));
+        }
+        for (var d = 1; d <= daysInMonth; d++) {
+          var cellDate = new Date(viewYear, viewMonth, d);
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = d;
+          btn.className = "oras-day-btn";
+          var isPast = cellDate < today;
+          var isToday = cellDate.getTime() === today.getTime();
+          var isSelected = selected && cellDate.getTime() === selected.getTime();
+          if (isToday) btn.className += " oras-day-btn--today";
+          if (isSelected) btn.className += " oras-day-btn--selected";
+          if (isPast) {
+            btn.disabled = true;
+          } else {
+            (function (cellDate) {
+              btn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                selected = cellDate;
+                valueInput.value = cellDate.getFullYear() + "-" + pad(cellDate.getMonth() + 1) + "-" + pad(cellDate.getDate());
+                label.textContent = pad(cellDate.getDate()) + "." + pad(cellDate.getMonth() + 1) + "." + cellDate.getFullYear() + ".";
+                label.style.color = "#1C1A17";
+                closeAllPops();
+                renderCalendar();
+              });
+            })(cellDate);
+          }
+          grid.appendChild(btn);
+        }
+      }
+
+      trigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (panel.hidden) { renderCalendar(); openPop(panel); } else { closeAllPops(); }
+      });
+      prevBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+        renderCalendar();
+      });
+      nextBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+        renderCalendar();
+      });
+      panel.addEventListener("click", function (e) { e.stopPropagation(); });
+    }
+
+    // ----- Time picker -----
+    if (timeField) {
+      var tTrigger = timeField.querySelector("[data-time-trigger]");
+      var tLabel = timeField.querySelector("[data-time-label]");
+      var tValueInput = timeField.querySelector("[data-time-value]");
+      var tPanel = timeField.querySelector("[data-time-panel]");
+      var tGrid = timeField.querySelector("[data-time-grid]");
+
+      var slots = [];
+      for (var h = 8; h <= 22; h++) {
+        slots.push(pad(h) + ":00");
+        slots.push(pad(h) + ":30");
+      }
+
+      var timeBtns = [];
+      slots.forEach(function (s) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = s;
+        btn.className = "oras-time-btn";
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          tValueInput.value = s;
+          tLabel.textContent = s;
+          tLabel.style.color = "#1C1A17";
+          timeBtns.forEach(function (b) { b.classList.remove("oras-time-btn--selected"); });
+          btn.classList.add("oras-time-btn--selected");
+          closeAllPops();
+        });
+        timeBtns.push(btn);
+        tGrid.appendChild(btn);
+      });
+
+      tTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (tPanel.hidden) openPop(tPanel); else closeAllPops();
+      });
+      tPanel.addEventListener("click", function (e) { e.stopPropagation(); });
+    }
+  })();
+
   // ---------- Kontakt: reservation form ----------
   var form = document.querySelector("[data-reservation-form]");
   if (form) {
     var errorBox = form.querySelector("[data-form-error]");
-    var successBox = form.querySelector("[data-form-success]");
+    var doneEl = document.querySelector("[data-reservation-done]");
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -321,14 +519,32 @@
 
       if (error) {
         if (errorBox) { errorBox.textContent = error; errorBox.hidden = false; }
-        if (successBox) successBox.hidden = true;
         return;
       }
 
       if (errorBox) errorBox.hidden = true;
-      if (successBox) successBox.hidden = false;
       form.reset();
       form.elements.people.value = "2";
+
+      // Scroll back to the top of the reservation section, landing at the
+      // same height the hero's "Rezervacija" button lands you at.
+      var section = document.getElementById("rezervacija");
+      if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Fade the form out, then swap in a standalone confirmation panel
+      // instead of just dropping a line of text under the fields.
+      if (doneEl) {
+        form.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+        form.style.opacity = "0";
+        form.style.transform = "translateY(-8px)";
+        setTimeout(function () {
+          form.style.display = "none";
+          doneEl.hidden = false;
+          void doneEl.offsetWidth;
+          doneEl.style.opacity = "1";
+          doneEl.style.transform = "translateY(0)";
+        }, 350);
+      }
     });
   }
 
@@ -396,6 +612,25 @@
       if (e.key === "Escape") { current = null; render(); }
       if (e.key === "ArrowRight") step(1);
       if (e.key === "ArrowLeft") step(-1);
+    });
+  }
+
+  // ---------- Back to top ----------
+  var toTopBtn = document.querySelector("[data-to-top]");
+  if (toTopBtn) {
+    var toTopVisible = false;
+    var setToTopVisible = function (visible) {
+      if (visible === toTopVisible) return;
+      toTopVisible = visible;
+      toTopBtn.style.opacity = visible ? "1" : "0";
+      toTopBtn.style.pointerEvents = visible ? "auto" : "none";
+      toTopBtn.style.transform = "translate(-50%, " + (visible ? "0" : "12px") + ")";
+    };
+    window.addEventListener("scroll", function () {
+      setToTopVisible(window.scrollY > 400);
+    }, { passive: true });
+    toTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 })();
