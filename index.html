@@ -35,8 +35,8 @@
 <div data-curtain="" style="position: fixed; top: 0; left: 0; width: 100%; height: 130vh; z-index: 90; background: #14110D; border-bottom-left-radius: 50% 30vh; border-bottom-right-radius: 50% 30vh; transform: translateY(-100%); animation: oras-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both; will-change: transform; backface-visibility: hidden; pointer-events: none"></div>
 
   <header class="oras-head" style="position: absolute; top: 0; left: 0; right: 0; z-index: 20; padding: 28px 40px 0">
-    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 24px">
-      <button data-menu-open aria-label="Otvori meni" class="oras-menu" style="display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 8px 0; cursor: pointer; color: #fff; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase" style-hover="color: #E8D9AE">
+    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: flex-start; gap: 24px">
+      <button data-menu-open aria-label="Otvori meni" class="oras-menu" style="justify-self: start; display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 8px 0; cursor: pointer; color: #fff; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase" style-hover="color: #E8D9AE">
         <span style="display: grid; gap: 5px; width: 26px">
           <span style="display: block; height: 1px; background: currentColor"></span>
           <span style="display: block; height: 1px; background: currentColor"></span>
@@ -44,10 +44,10 @@
         </span>
         <span>Meni</span>
       </button>
-      <a href="#pocetna" class="oras-plate" style="display: block; width: 92px; height: 92px; background: #FDFCF9; border-radius: 3px; padding: 6px; flex: 0 0 auto">
+      <a href="#pocetna" class="oras-plate" style="justify-self: center; display: block; width: 92px; height: 92px; background: #FDFCF9; border-radius: 3px; padding: 6px; flex: 0 0 auto">
         <img src="images/logo-oras.png" alt="Restoran Oras" style="width: 100%; height: 100%; object-fit: contain; display: block" />
       </a>
-      <a href="tel:066333508" class="oras-tel" style="border: 1px solid rgba(255,255,255,0.5); color: #fff; padding: 12px 20px; border-radius: 4px; font-size: 13px; letter-spacing: 0.12em; margin-top: 6px; white-space: nowrap" style-hover="border-color: #fff; background: rgba(255,255,255,0.12); color: #fff">066 333 508</a>
+      <a href="tel:066333508" class="oras-tel" style="justify-self: end; border: 1px solid rgba(255,255,255,0.5); color: #fff; padding: 12px 20px; border-radius: 4px; font-size: 13px; letter-spacing: 0.12em; margin-top: 6px; white-space: nowrap" style-hover="border-color: #fff; background: rgba(255,255,255,0.12); color: #fff">066 333 508</a>
     </div>
     <nav class="oras-nav" style="display: flex; justify-content: center; gap: 42px; margin-top: 24px; flex-wrap: wrap">
       <a href="#pocetna" style="color: #fff; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #C9A44C" style-hover="color: #fff">Početna</a>
