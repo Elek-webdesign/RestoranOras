@@ -19,7 +19,8 @@
   a:hover { color: #6E5124; }
   input, textarea, select { font-family: 'Jost', sans-serif; }
   input:focus, textarea:focus, select:focus { outline: none; border-color: #8C6A2F; }
-  .oras-info-grid { display: grid; grid-template-columns: repeat(3, minmax(200px, 260px)); justify-content: center; gap: 88px; align-items: start; }
+  .oras-info-grid { display: grid; grid-template-columns: repeat(3, minmax(200px, 260px)); justify-content: center; justify-items: center; gap: 88px; align-items: start; text-align: center; }
+  .oras-info-grid > div { display: flex; flex-direction: column; align-items: center; }
   .oras-pop { position: absolute; top: calc(100% + 10px); left: 0; z-index: 25; background: #FFFFFF; border: 1px solid #E5DFD3; border-radius: 12px; box-shadow: 0 20px 45px rgba(28,26,23,0.14), 0 4px 14px rgba(28,26,23,0.07); padding: 20px; opacity: 0; transform: translateY(-8px); transition: opacity 0.2s ease, transform 0.2s ease; }
   .oras-pop--date { width: 300px; }
   .oras-pop--time { width: 220px; max-height: 280px; overflow-y: auto; }
@@ -91,7 +92,7 @@
         <div>
           <p style="margin: 0 0 14px; color: #8C6A2F; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Adresa</p>
           <p class="oras-info-val" style="margin: 0 0 30px; font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.4; min-height: 73px">Put za Ovču 158<br />11213 Beograd</p>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Restoran+Oras+Put+za+Ov%C4%8Du+158+Beograd" style="display: flex; align-items: center; min-height: 51px; font-size: 15px; letter-spacing: 0.08em"><span style="border-bottom: 1px solid #C9C0B0; padding-bottom: 2px">Otvori u Google mapama</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Restoran+Oras+Put+za+Ov%C4%8Du+158+Beograd" style="display: flex; align-items: center; justify-content: center; min-height: 51px; font-size: 15px; letter-spacing: 0.08em"><span style="border-bottom: 1px solid #C9C0B0; padding-bottom: 2px">Otvori u Google mapama</span></a>
         </div>
         <div>
           <p style="margin: 0 0 14px; color: #8C6A2F; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase">Telefon</p>
